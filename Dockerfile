@@ -5,6 +5,7 @@ ENV SOFT	AnalyticsPlus
 ENV SOFT_OPT	/opt/ManageEngine
 ENV SOFT_HOME	${SOFT_OPT}/${SOFT}${SOFTSUB}
 ENV FIXED	true
+ENV MANUAL	true
 
 # download option
 RUN yum install curl -y && \
@@ -21,4 +22,5 @@ VOLUME ["${SOFT_OPT}"]
 # Expose default HTTP connector port.
 EXPOSE 8443
 
-CMD ["/docker-entrypoint.sh"]
+CMD ["/usr/sbin/init"]
+#CMD ["/docker-entrypoint.sh"]
